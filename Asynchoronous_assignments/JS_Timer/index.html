@@ -1,11 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Timer</title>
 </head>
+<style>
+    .container {
+        /* border: 1px solid red; */
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn {
+        text-align: center;
+       
+
+    }
+
+    .hour,
+    .mint,
+    .seconds {
+        width: 50px;
+        border: none;
+        text-align: center;
+    }
+
+    .para {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        /* border: 1px solid red; */
+        width: 160px;
+        margin: auto;
+        padding: 10px;
+        gap: 40px;
+    }
+    .cont{
+        border: 1px solid grey;
+        width: 30%;
+        border-radius: 10px;
+        margin: auto;
+    }
+</style>
+
+
 <body>
-    
+    <h1 style="text-align: center;">Timer</h1>
+
+    <div class="cont">
+        <div class="container">
+
+
+            <input type="text" name="hour" class="hour" placeholder="00">:
+
+            <input type="text" name="mint" class="mint" placeholder="00">:
+
+            <input type="text" name="seconds" class="seconds" placeholder="00">
+
+
+
+        </div>
+
+        <div class="btn">
+            <button class="start" onclick="start()">Start</button>
+
+            <button class="pause" onclick="pause()">Pause</button>
+
+            <button class="reset" onclick="reset()">Reset</button>
+
+            <div class="para">
+                <p class="show hr">00</p>
+                <p class="show min">00</p>
+
+                <p class="show sec">00</p>
+            </div>
+        </div>
+    </div>
 </body>
+
+<script>
+    // input
+    let hour = document.querySelector(".hour")
+    let mint = document.querySelector(".mint")
+    let seconds = document.querySelector(".seconds")
+
+    // btn
+    let showHr = document.querySelector(".hr")
+    let showMint = document.querySelector(".min")
+    let showSec = document.querySelector(".sec")
+
+    // p
+    let startBtn = document.querySelector(".start")
+    let pauseBtn = document.querySelector(".pause")
+    let resetBtn = document.querySelector(".reset")
+
+
+
+    let interval;
+
+    function start() {
+        let hr = hour.value;
+        let min = mint.value;
+        let sec = seconds.value;
+
+
+        interval = setInterval(() => {
+
+
+            if (sec == 1) {
+
+                if (min > 0) {
+                    sec = 60
+
+                    min--
+                }
+                else if (min == 0) {
+                    if (hr > 0) {
+                        min = 60
+                        sec = 60
+                        hr--
+                    }
+                    else {
+                        clearInterval(interval)
+                        alert("Your time is up")
+                    }
+
+                }
+                else {
+
+                    clearInterval(interval)
+                    alert("Your time is up")
+                }
+
+            }
+
+
+            sec--
+
+            if (sec < 11) {
+                sec = "0" + sec
+            }
+
+
+            showSec.innerHTML = sec
+
+            showMint.innerHTML = min
+
+            showHr.innerHTML = hr
+
+        }, 1000)
+
+
+    }
+</script>
+
 </html>
