@@ -1,0 +1,43 @@
+.container {
+   display: grid;
+   grid-template-columns: repeat(6,1fr);
+    justify-content: center;
+    align-items: center;
+}
+
+.country {
+    background-color: #f0f0f0;
+    border: 1px solid #b21c1c;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
+    width: 300px;
+}
+
+.fetch {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.fetch:hover {
+    background-color: #45a049;
+}
+.card{
+    border: 1px solid rgb(159, 157, 157);
+    padding: 10px;
+    margin: 10px;
+}
+
+.details{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding:5px;
+    background-color: #29ba30;
+}
+
